@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: bounce 2s infinite;
+        }
+
+        .message {
+            font-size: 1.5em;
+            color: #fff;
+            margin: 20px 0;
+        }
+
+        .cake {
+            margin: 30px auto;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cake:hover {
+            transform: scale(1.1);
+        }
+
+        .gift-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            position: absolute;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .music-btn {
+            padding: 10px 20px;
+            background: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday Dad!</h1>
+        <div class="message">
+            <p>Wishing you a fantastic day filled with joy and happiness!</p>
+            <p>May all your dreams come true.</p>
+        </div>
+        
+        <div class="cake">
+            <img src="https://github.com/VirakbothYin/HTML/blob/b/cake-removebg-preview.png" alt="Birthday Cake" width="300">
+        </div>
+
+        <div class="gift-box">
+            <h2>Your Special Day!</h2>
+            <p>Click the buttons below to celebrate:</p>
+            
+            <button class="music-btn" onclick="createConfetti()">Throw Confetti!</button>
+        </div>
+    </div>
+
+    <script>
+        
+
+        function createConfetti() {
+            for(let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        document.querySelector('.cake').addEventListener('click', createConfetti);
+    </script>
+
+    <style>
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>
