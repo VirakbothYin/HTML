@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Lilita One', static;
+            text-align: center;
+            background-color: aliceblue;
+            transition: 0.5s ease;
+            
+        }
+        .title {
+            font-family: 'Lilita One', static;
+            font-size: 50px;
+            color : black;
+            
+        }
+        button {
+            font-family: 'Lilita One', static;
+            font-size: 20px;
+            background-color: white;
+            border-radius:  20%;
+            padding: 10px 20px;
+            margin: 10px;
+            transition:  0.5s ease;
+            
+
+        }
+       button:hover {
+            background-color: gray;
+            color: white;
+       }
+
+      
+    </style>
+</head>
+<body>
+    <h1 class="title">Color Changer</h1>
+    <button id="redbutton">Red</button>
+    <button id="bluebutton">Blue</button>
+    <button id="greenbutton">Green</button>
+    <button id="resetbutton">Reset</button>
+
+    <script>
+       let redbutton = document.getElementById('redbutton');
+       let bluebutton = document.getElementById('bluebutton');
+       let greenbutton = document.getElementById('greenbutton');
+       let resetbutton = document.getElementById('resetbutton');
+
+       redbutton.addEventListener('click', function(){
+        document.body.style.backgroundColor = 'red';
+
+       });
+       bluebutton.addEventListener('click', function(){
+        document.body.style.backgroundColor = 'blue';
+        
+       });
+       greenbutton.addEventListener('click', function(){
+        document.body.style.backgroundColor = 'green';
+        
+       });
+       resetbutton.addEventListener('click', function(){
+        document.body.style.backgroundColor = 'aliceblue';
+       })
+    </script>
+</body>
+</html>
