@@ -81,29 +81,26 @@
 </head>
 <body>
     <div class="container">
-        <h1>Happy Birthday!</h1>
+        <h1>Happy Birthday Dad!</h1>
         <div class="message">
             <p>Wishing you a fantastic day filled with joy and happiness!</p>
             <p>May all your dreams come true.</p>
         </div>
         
         <div class="cake">
-            <img src="cake-removebg-preview.png" alt="Birthday Cake" width="300">
+            <img src="images/cake-removebg-preview.png" alt="Birthday Cake" width="300">
         </div>
 
         <div class="gift-box">
             <h2>Your Special Day!</h2>
             <p>Click the buttons below to celebrate:</p>
-            <button class="music-btn" onclick="playMusic()">Play Birthday Song</button>
+            
             <button class="music-btn" onclick="createConfetti()">Throw Confetti!</button>
         </div>
     </div>
 
     <script>
-        function playMusic() {
-            const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-            audio.play();
-        }
+        
 
         function createConfetti() {
             for(let i = 0; i < 50; i++) {
