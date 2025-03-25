@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        
+
+    </style>
+</head>
+<body>
+    <form action="" id="myform">
+        <input type ="text" placeholder="Enter your name" name="nameInput" id="nameInput">
+        <button type ="submit">Submit</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        let form = document.getElementById('myform');  
+        let nameInput = document.getElementById('nameInput');
+        let message = document.getElementById('message');
+
+        form.addEventListener('submit', function(event){
+            event.preventDefault();
+
+            if (nameInput.value === ''){
+                message.textContent = 'Name cannot be empty!';
+                message.style.color = 'red';
+
+            }
+            else {
+                message.textContent = "Hello " +nameInput.value+ '!';
+                message.style.color = 'green';
+            }
+        });
+        
+    </script>
+</body>
+</html>
