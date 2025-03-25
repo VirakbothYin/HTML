@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
         body {
@@ -34,6 +34,11 @@
             background-color: gray;
             color: white;
        }
+       .div {
+            display: flex;
+            align-items: center;
+            margin-left: 1px;
+       }
 
       
     </style>
@@ -43,28 +48,70 @@
     <button id="redbutton">Red</button>
     <button id="bluebutton">Blue</button>
     <button id="greenbutton">Green</button>
+    <label for="colorinput">Choose Color</label>
+    <input type="color" id="colorinput">
+    
+    <button id="randombutton">Random Color</button>
+
+    <div>
     <button id="resetbutton">Reset</button>
+    </div>
+    <div class="colorhistory">Color History</div>
+    
 
     <script>
+        
        let redbutton = document.getElementById('redbutton');
        let bluebutton = document.getElementById('bluebutton');
        let greenbutton = document.getElementById('greenbutton');
+       let colorinput = document.getElementById('colorinput');
+       let randombutton = document.getElementById('randombutton');
        let resetbutton = document.getElementById('resetbutton');
+       let colorhistory = document.querySelector('.colorhistory')
+       let appliedColors = [];
+
+       function updateColorHistory(color) {
+            appliedColors.push(color);
+            let colorDiv = document.createElement('div');
+            colorDiv.style.backgroundColor = color;
+            colorDiv.style.width = '50px';
+            colorDiv.style.height = '50px';
+            colorDiv.style.display = 'inline-block';
+            colorDiv.style.margin = '5px';
+            colorhistory.appendChild(colorDiv);}
 
        redbutton.addEventListener('click', function(){
-        document.body.style.backgroundColor = 'red';
-
+        let color = 'red';
+        document.body.style.backgroundColor = color;
+        updateColorHistory(color);
        });
        bluebutton.addEventListener('click', function(){
-        document.body.style.backgroundColor = 'blue';
+        let color = 'blue';
+        document.body.style.backgroundColor = color;
+        updateColorHistory(color);
         
        });
        greenbutton.addEventListener('click', function(){
-        document.body.style.backgroundColor = 'green';
+        let color = 'green';
+        document.body.style.backgroundColor = color;
+        updateColorHistory(color);
         
        });
+       colorinput.addEventListener('input', function(){
+        document.body.style.backgroundColor = colorinput.value;
+       });
+        randombutton.addEventListener('click', function(){
+            let color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+       
+            document.body.style.backgroundColor = color;
+            updateColorHistory(color);
+        }); 
+
+
        resetbutton.addEventListener('click', function(){
-        document.body.style.backgroundColor = 'aliceblue';
+        let color = 'aliceblue';
+        document.body.style.backgroundColor = color;
+        updateColorHistory(color);
        })
     </script>
 </body>
